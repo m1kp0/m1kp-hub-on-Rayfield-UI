@@ -1,5 +1,8 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
+local farm = game.Workspace.Map.BarnHillArea.Farm
+local CameraBlur = game.Workspace.Camera.Blur
+
 local Window = Rayfield:CreateWindow({
    Name = "m1kp hub",
    LoadingTitle = "Rayfield Interface Suite",
@@ -70,3 +73,18 @@ local Slider = Player:CreateSlider({
    end,
 })
 
+local FpsBoost = Window:CreateTab("Fps Boost", 4483362458)
+
+local Button = FpsBoost:CreateButton({
+   Name = "Delete farm",
+   Callback = function()
+      farm:Destroy()
+   end,
+})
+
+local Button = FpsBoost:CreateButton({
+   Name = "Delete camera blur",
+   Callback = function()
+      CameraBlur:Destroy()
+   end,
+})
