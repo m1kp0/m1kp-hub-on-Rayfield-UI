@@ -50,7 +50,7 @@ local Slider = Player:CreateSlider({
     Range = {0, 500},
     Increment = 1,
     Sufflix = "Speed",
-    CurrentValue = 50,
+    CurrentValue = 30,
     Flag = "Slider1", 
     Callback = function (jump)
         while game:GetService("RunService").RenderStepped:wait() do
