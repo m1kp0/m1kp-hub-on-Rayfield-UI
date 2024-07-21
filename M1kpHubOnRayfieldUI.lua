@@ -1,31 +1,5 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local userInputService = game:GetService("UserInputService")
- 
-local isSprinting = false
-local walkSpeed = humanoid.WalkSpeed
-local sprintSpeed = 2 * walkSpeed -- You can adjust the sprint speed multiplier here
- 
-local function onKeyPress(input)
-    if input.KeyCode == Enum.KeyCode.LeftShift then
-        isSprinting = true
-        humanoid.WalkSpeed = sprintSpeed
-    end
-end
- 
-local function onKeyRelease(input)
-    if input.KeyCode == Enum.KeyCode.LeftShift then
-        isSprinting = false
-        humanoid.WalkSpeed = walkSpeed
-    end
-end
- 
-userInputService.InputBegan:Connect(onKeyPress)
-userInputService.InputEnded:Connect(onKeyRelease)
-
 local farm = game.Workspace.Map.BarnHillArea.Farm
 local CameraBlur = game.Workspace.Camera.Blur
 
