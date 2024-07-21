@@ -1,15 +1,10 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-
---CONFIGURATIONS--------------------------------------------
-local DefaultWalkSpeed = 16 --Player walkspeed when sprinting
-local SprintSpeed = 25 --Player walkspeed when walking
+local DefaultWalkSpeed = 16 
+local SprintSpeed = 25 
  
-local CameraEffect = true --Toggle FOV on/off when sprinting is enabled
-local FieldOfView = 80 --Camera FOV when sprinting (only if CameraEffect is enabled)
---------------------------------------------------------------
- 
---DANGER ZONE-----------------------------------------------
+local CameraEffect = true 
+local FieldOfView = 80 
 local cas = game:GetService("ContextActionService")
 local Leftc = Enum.KeyCode.LeftControl
 local RightC = Enum.KeyCode.RightControl
@@ -21,7 +16,6 @@ local Camera = game.Workspace.CurrentCamera
 local TweenService = game:GetService("TweenService")
 local UIS = game:GetService("UserInputService")
  
---PC
  
 UIS.InputBegan:Connect(function(key, gameProcessed)
  if gameProcessed then return end
@@ -32,104 +26,7 @@ UIS.InputBegan:Connect(function(key, gameProcessed)
   Humanoid.WalkSpeed = SprintSpeed
  end
 end)
- 
-UIS.InputEnded:Connect(function(key, gameProcessed)
- if gameProcessed then return end
- if key.KeyCode == Enum.KeyCode.LeftShift then
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = 70}):Play()
-  end
-  Humanoid.WalkSpeed = DefaultWalkSpeed
- end
-end)
- 
---Mobile
- 
-local function handleContext(name, state, input)
- if state == Enum.UserInputState.Begin then
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = FieldOfView}):Play()
-  end
-  Humanoid.WalkSpeed = SprintSpeed
- else
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = 70}):Play()
-  end
-  Humanoid.WalkSpeed = DefaultWalkSpeed
- end
-end
- 
-cas:BindAction("Sprint", handleContext, true, Leftc, RightC)
-cas:SetPosition("Sprint", UDim2.new(.2, 0, .5, 0))
-cas:SetTitle("Sprint", "Sprint")
-cas:GetButton("Sprint").Size = UDim2.new(.3, 0, .3, 0)
---------------------------------------------------------------
-Advertisement
-Add Comment
-Please, Sign In to add comment
-Advertisement
-create new paste  /  syntax languages  /  archive  /  faq  /  tools  /  night mode  /  api  /  scraping api  /  news  /  pro
-privacy statement  /  cookies policy  /  terms of service /  security disclosure  /  dmca  /  report abuse  /  contact
 
-No 
---CONFIGURATIONS--------------------------------------------
-local DefaultWalkSpeed = 16 --Player walkspeed when sprinting
-local SprintSpeed = 25 --Player walkspeed when walking
- 
-local CameraEffect = true --Toggle FOV on/off when sprinting is enabled
-local FieldOfView = 80 --Camera FOV when sprinting (only if CameraEffect is enabled)
---------------------------------------------------------------
- 
---DANGER ZONE-----------------------------------------------
-local cas = game:GetService("ContextActionService")
-local Leftc = Enum.KeyCode.LeftControl
-local RightC = Enum.KeyCode.RightControl
-local player = game:GetService("Players").LocalPlayer
-local char = player.Character or player.CharacterAdded:Wait()
-local Humanoid = char:WaitForChild("Humanoid")
- 
-local Camera = game.Workspace.CurrentCamera
-local TweenService = game:GetService("TweenService")
-local UIS = game:GetService("UserInputService")
- 
---PC
- 
-UIS.InputBegan:Connect(function(key, gameProcessed)
- if gameProcessed then return end
- if key.KeyCode == Enum.KeyCode.LeftShift then
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = FieldOfView}):Play()
-  end
-  Humanoid.WalkSpeed = SprintSpeed
- end
-end)
- 
-UIS.InputEnded:Connect(function(key, gameProcessed)
- if gameProcessed then return end
- if key.KeyCode == Enum.KeyCode.LeftShift then
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = 70}):Play()
-  end
-  Humanoid.WalkSpeed = DefaultWalkSpeed
- end
-end)
- 
---Mobile
- 
-local function handleContext(name, state, input)
- if state == Enum.UserInputState.Begin then
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = FieldOfView}):Play()
-  end
-  Humanoid.WalkSpeed = SprintSpeed
- else
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = 70}):Play()
-  end
-  Humanoid.WalkSpeed = DefaultWalkSpeed
- end
-end
- 
 cas:BindAction("Sprint", handleContext, true, Leftc, RightC)
 cas:SetPosition("Sprint", UDim2.new(.2, 0, .5, 0))
 cas:SetTitle("Sprint", "Sprint")
