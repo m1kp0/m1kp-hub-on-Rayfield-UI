@@ -1,5 +1,6 @@
+--GUI
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-
+--LOCALS
 local farm = game.Workspace.Map.BarnHillArea.Farm
 local CameraBlur = game.Workspace.Camera.Blur
 
@@ -10,7 +11,7 @@ local userInputService = game:GetService("UserInputService")
  
 local isSprinting = false
 local walkSpeed = humanoid.WalkSpeed
-local sprintSpeed = 5 * walkSpeed -- You can adjust the sprint speed multiplier here
+local sprintSpeed = 5 * walkSpeed
  
 local function onKeyPress(input)
     if input.KeyCode == Enum.KeyCode.C then
@@ -36,7 +37,7 @@ local userInputService = game:GetService("UserInputService")
  
 local isSprinting = false
 local walkSpeed = humanoid.WalkSpeed
-local sprintSpeed = 10 * walkSpeed -- You can adjust the sprint speed multiplier here
+local sprintSpeed = 10 * walkSpeed
  
 local function onKeyPress(input)
     if input.KeyCode == Enum.KeyCode.X then
@@ -54,7 +55,7 @@ end
  
 userInputService.InputBegan:Connect(onKeyPress)
 userInputService.InputEnded:Connect(onKeyRelease)
-
+--CREATE WINDOW
 local Window = Rayfield:CreateWindow({
    Name = "m1kp hub",
    LoadingTitle = "Rayfield Interface Suite",
@@ -80,7 +81,7 @@ local Window = Rayfield:CreateWindow({
       Key = {"m1kp"} 
    }
 })
-
+--SPEED
 local Player = Window:CreateTab("Player", 4483362458)
 
 local Slider = Player:CreateSlider({
@@ -96,7 +97,7 @@ local Slider = Player:CreateSlider({
         end
    end,
 })
-
+--JUMP
 local Slider = Player:CreateSlider({
     Name = "Jump",
     Range = {0, 1000},
@@ -110,7 +111,7 @@ local Slider = Player:CreateSlider({
         end
     end,
  })
-
+--GRAVITY
  local Slider = Player:CreateSlider({
    Name = "Gravity",
    Range = {0, 500},
@@ -124,7 +125,7 @@ local Slider = Player:CreateSlider({
        end
    end,
 })
-
+--FPSBOOST(DELETE OBJECTS [VISUAL])
 local FpsBoost = Window:CreateTab("Fps Boost", 4483362458)
 
 local Button = FpsBoost:CreateButton({
@@ -140,3 +141,4 @@ local Button = FpsBoost:CreateButton({
       CameraBlur:Destroy()
    end,
 })
+--MAKE TAB??
