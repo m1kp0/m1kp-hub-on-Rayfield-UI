@@ -1,36 +1,30 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
 
-local DefaultWalkSpeed = 16 
-local SprintSpeed = 25 
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local userInputService = game:GetService("UserInputService")
  
-local CameraEffect = true 
-local FieldOfView = 80 
-local cas = game:GetService("ContextActionService")
-local Leftc = Enum.KeyCode.LeftControl
-local RightC = Enum.KeyCode.RightControl
-local player = game:GetService("Players").LocalPlayer
-local char = player.Character or player.CharacterAdded:Wait()
-local Humanoid = char:WaitForChild("Humanoid")
+local isSprinting = false
+local walkSpeed = humanoid.WalkSpeed
+local sprintSpeed = 2 * walkSpeed -- You can adjust the sprint speed multiplier here
  
-local Camera = game.Workspace.CurrentCamera
-local TweenService = game:GetService("TweenService")
-local UIS = game:GetService("UserInputService")
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.LeftShift then
+        isSprinting = true
+        humanoid.WalkSpeed = sprintSpeed
+    end
+end
  
+local function onKeyRelease(input)
+    if input.KeyCode == Enum.KeyCode.LeftShift then
+        isSprinting = false
+        humanoid.WalkSpeed = walkSpeed
+    end
+end
  
-UIS.InputBegan:Connect(function(key, gameProcessed)
- if gameProcessed then return end
- if key.KeyCode == Enum.KeyCode.LeftShift then
-  if CameraEffect == true then
-   TweenService:Create(Camera, TweenInfo.new(0.5), {FieldOfView = FieldOfView}):Play()
-  end
-  Humanoid.WalkSpeed = SprintSpeed
- end
-end)
-
-cas:BindAction("Sprint", handleContext, true, Leftc, RightC)
-cas:SetPosition("Sprint", UDim2.new(.2, 0, .5, 0))
-cas:SetTitle("Sprint", "Sprint")
-cas:GetButton("Sprint").Size = UDim2.new(.3, 0, .3, 0)
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
 
 local farm = game.Workspace.Map.BarnHillArea.Farm
 local CameraBlur = game.Workspace.Camera.Blur
