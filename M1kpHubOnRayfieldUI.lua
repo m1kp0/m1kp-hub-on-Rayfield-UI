@@ -12,7 +12,7 @@ local userInputService = game:GetService("UserInputService")
  
 local isSprinting = false
 local walkSpeed = humanoid.WalkSpeed
-local sprintSpeed = 6 * walkSpeed -- You can adjust the sprint speed multiplier here
+local sprintSpeed = 10 * walkSpeed -- You can adjust the sprint speed multiplier here
  
 local function onKeyPress(input)
     if input.KeyCode == Enum.KeyCode.C then
