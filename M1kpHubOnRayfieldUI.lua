@@ -25,7 +25,7 @@ local Window = Rayfield:CreateWindow({
       FileName = "Key", 
       SaveKey = true, 
       GrabKeyFromSite = false, 
-      Key = {"Hello"} 
+      Key = {"m1kp"} 
    }
 })
 
@@ -47,7 +47,7 @@ local Slider = Player:CreateSlider({
 
 local Slider = Player:CreateSlider({
     Name = "Jump",
-    Range = {0, 500},
+    Range = {0, 1000},
     Increment = 1,
     Sufflix = "Speed",
     CurrentValue = 30,
