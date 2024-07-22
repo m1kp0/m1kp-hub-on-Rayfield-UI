@@ -171,7 +171,7 @@ userInputService.InputEnded:Connect(onKeyRelease)
 
 --CREATE WINDOW
 local Window = Rayfield:CreateWindow({
-   Name = "m1kp hub",
+   Name = "e",
    LoadingTitle = "Rayfield Interface Suite",
    LoadingSubtitle = "by m1kp",
    ConfigurationSaving = {
