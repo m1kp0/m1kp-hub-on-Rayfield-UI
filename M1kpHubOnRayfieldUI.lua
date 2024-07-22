@@ -29,7 +29,29 @@ end
  
 userInputService.InputBegan:Connect(onKeyPress)
 userInputService.InputEnded:Connect(onKeyRelease)
+
+local isJumping = false
+local jumpPower = humanoid.JumpPower
+local jumppower = 10 * jumpPower
  
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.C then
+        isJumping = true
+        humanoid.JumpPower = jumpPower
+    end
+end
+ 
+local function onKeyRelease(input)
+    if input.KeyCode == Enum.KeyCode.C then
+        isJumping = false
+        humanoid.JumpPower = jumpPower
+    end
+end
+ 
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
+
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
@@ -55,6 +77,98 @@ end
  
 userInputService.InputBegan:Connect(onKeyPress)
 userInputService.InputEnded:Connect(onKeyRelease)
+
+local isJumping = false
+local jumpPower = humanoid.JumpPower
+local jumppower = 30 * jumpPower
+ 
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.C then
+        isJumping = true
+        humanoid.JumpPower = jumpPower
+    end
+end
+ 
+local function onKeyRelease(input)
+    if input.KeyCode == Enum.KeyCode.C then
+        isJumping = false
+        humanoid.JumpPower = jumpPower
+    end
+end
+ 
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
+ 
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local userInputService = game:GetService("UserInputService")
+ 
+local FieldOfView = false
+local fieldofView = game.Workspace.Camera.FieldOfView
+local fieldOfViev = 75
+ 
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.C then
+        FieldOfView = true
+        game.Workspace.Camera.FieldOfView = 75
+    end
+end
+ 
+local function onKeyRelease(input)
+    if input.KeyCode == Enum.KeyCode.C then
+        FieldOfView = false
+        game.Workspace.Camera.FieldOfView = 70
+    end
+end
+ 
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
+local FieldOfView = false
+local fieldofView = game.Workspace.Camera.FieldOfView
+local fieldOfViev = 75
+ 
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.X then
+        FieldOfView = true
+        game.Workspace.Camera.FieldOfView = 78
+    end
+end
+ 
+local function onKeyRelease(input)
+    if input.KeyCode == Enum.KeyCode.X then
+        FieldOfView = false
+        game.Workspace.Camera.FieldOfView = 70
+    end
+end
+ 
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
+local FieldOfZoom = false
+local fieldofZoom = game.Workspace.Camera.FieldOfView
+local fieldOfZoom = 25
+ 
+local function onKeyPress(input)
+    if input.KeyCode == Enum.KeyCode.V then
+        FieldOfZoom = true
+        game.Workspace.Camera.FieldOfView = fieldOfZoom
+    end
+end
+ 
+local function onKeyRelease(input)
+    if input.KeyCode == Enum.KeyCode.V then
+        FieldOfZoom = false
+        game.Workspace.Camera.FieldOfView = 70
+    end
+end
+ 
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
 --CREATE WINDOW
 local Window = Rayfield:CreateWindow({
    Name = "m1kp hub",
@@ -125,6 +239,21 @@ local Slider = Player:CreateSlider({
        end
    end,
 })
+
+local Slider = Player:CreateSlider({
+    Name = "Field of view",
+    Range = {0, 120},
+    Increment = 1,
+    Sufflix = "Speed",
+    CurrentValue = 70,
+    Flag = "Slider1", 
+    Callback = function (FieldOfView)
+        while game:GetService("RunService").RenderStepped:wait() do
+        game.Workspace.Camera.FieldOfView = FieldOfView
+        end
+    end,
+ })
+
 --FPSBOOST(DELETE OBJECTS [VISUAL])
 local FpsBoost = Window:CreateTab("Fps Boost", 4483362458)
 
@@ -141,4 +270,3 @@ local Button = FpsBoost:CreateButton({
       CameraBlur:Destroy()
    end,
 })
---MAKE TAB??
