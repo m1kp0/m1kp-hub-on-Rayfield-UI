@@ -113,7 +113,7 @@ local fieldOfViev = 75
 local function onKeyPress(input)
     if input.KeyCode == Enum.KeyCode.C then
         FieldOfView = true
-        game.Workspace.Camera.FieldOfView = 75
+        game.Workspace.Camera.FieldOfView = 74
     end
 end
  
@@ -134,7 +134,7 @@ local fieldOfViev = 75
 local function onKeyPress(input)
     if input.KeyCode == Enum.KeyCode.X then
         FieldOfView = true
-        game.Workspace.Camera.FieldOfView = 78
+        game.Workspace.Camera.FieldOfView = 75
     end
 end
  
