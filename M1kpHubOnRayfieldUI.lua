@@ -126,93 +126,89 @@ local Button = FpsBoost:CreateButton({
    end,
 })
 --C, V FOR SPEED AND ZOOM
-    wait(1)
-    local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            isSprinting = true
-            humanoid.WalkSpeed = sprintSpeed
-        end
-    end
-    
-    local function onKeyRelease(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            isSprinting = false
-            humanoid.WalkSpeed = walkSpeed
-        end
-    end
+local function onKeyPress(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      isSprinting = true
+      humanoid.WalkSpeed = sprintSpeed
+   end
+end
 
-    userInputService.InputBegan:Connect(onKeyPress)
-    userInputService.InputEnded:Connect(onKeyRelease)
+local function onKeyRelease(input)
+   if input.KeyCode == Enum.KeyCode.C then
+         isSprinting = false
+         humanoid.WalkSpeed = walkSpeed
+      end
+end
 
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
+local function onKeyPress(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      isJumping = true
+      humanoid.JumpPower = jumpPower
+   end
+end
+   
+local function onKeyRelease(input) 
+   if input.KeyCode == Enum.KeyCode.C then
+         isJumping = false
+         humanoid.JumpPower = jumpPower
+   end
+end
     
-    local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            isJumping = true
-            humanoid.JumpPower = jumpPower
-        end
-    end
-    
-    local function onKeyRelease(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            isJumping = false
-            humanoid.JumpPower = jumpPower
-        end
-    end
-    
-    userInputService.InputBegan:Connect(onKeyPress)
-    userInputService.InputEnded:Connect(onKeyRelease)
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
 
 
     
-    local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            isJumping = true
-            humanoid.JumpPower = jumpPower
-        end
-    end
+local function onKeyPress(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      isJumping = true
+      humanoid.JumpPower = jumpPower
+   end
+end
     
-    local function onKeyRelease(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            isJumping = false
-            humanoid.JumpPower = jumpPower
-        end
-    end
+local function onKeyRelease(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      isJumping = false
+      humanoid.JumpPower = jumpPower
+   end
+end
     
-    userInputService.InputBegan:Connect(onKeyPress)
-    userInputService.InputEnded:Connect(onKeyRelease)
-    
-    
-    local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            FieldOfView = true
-            game.Workspace.Camera.FieldOfView = 75
-        end
-    end
-    
-    local function onKeyRelease(input)
-        if input.KeyCode == Enum.KeyCode.C then
-            FieldOfView = false
-            game.Workspace.Camera.FieldOfView = 70
-        end
-    end
-    
-    userInputService.InputBegan:Connect(onKeyPress)
-    userInputService.InputEnded:Connect(onKeyRelease)
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
 
+local function onKeyPress(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      FieldOfView = true
+      game.Workspace.Camera.FieldOfView = 75
+   end
+end
     
-    local function onKeyPress(input)
-        if input.KeyCode == Enum.KeyCode.V then
-            FieldOfZoom = true
-            game.Workspace.Camera.FieldOfView = fieldOfZoom
-        end
-    end
+local function onKeyRelease(input)
+   if input.KeyCode == Enum.KeyCode.C then
+      FieldOfView = false
+      game.Workspace.Camera.FieldOfView = 70
+   end
+end
     
-    local function onKeyRelease(input)
-        if input.KeyCode == Enum.KeyCode.V then
-            FieldOfZoom = false
-            game.Workspace.Camera.FieldOfView = 70
-        end
-    end
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
+
+local function onKeyPress(input)
+   if input.KeyCode == Enum.KeyCode.V then
+      FieldOfZoom = true
+      game.Workspace.Camera.FieldOfView = fieldOfZoom
+   end
+end
     
-    userInputService.InputBegan:Connect(onKeyPress)
-    userInputService.InputEnded:Connect(onKeyRelease)
+local function onKeyRelease(input)
+   if input.KeyCode == Enum.KeyCode.V then
+      FieldOfZoom = false
+      game.Workspace.Camera.FieldOfView = 70
+   end
+end
+    
+userInputService.InputBegan:Connect(onKeyPress)
+userInputService.InputEnded:Connect(onKeyRelease)
